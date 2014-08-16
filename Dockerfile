@@ -4,10 +4,10 @@ ENV UPDATED "Sat Aug 16 00:08:07 UTC 2014"
 
 RUN apt-get update
 RUN apt-get -y install wget
-RUN wget http://repo.continuum.io/miniconda/Miniconda-3.6.0-Linux-x86_64.sh -O /tmp/miniconda.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda-3.6.0-Linux-x86_64.sh -O /tmp/miniconda.sh -q
 RUN chmod +x /tmp/miniconda.sh
 RUN /tmp/miniconda.sh -b -p /usr/local/miniconda
-RUN export PATH=/usr/local/miniconda/bin:$PATH
+ENV PATH /usr/local/miniconda/bin:$PATH
 RUN conda update -q conda
 RUN conda install -q pip tornado
 RUN pip flower 
