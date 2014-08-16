@@ -13,6 +13,6 @@ RUN conda install -q pip tornado redis-py
 RUN pip install flower 
 
 EXPOSE      5555
-ENV BROKER amqp://${DB_PORT_5672_TCP_ADDR}:${DB_PORT_5672_TCP_PORT}//
-ENV BROKER_API http://guest:guest@${DB_PORT_15672_TCP_ADDR}:${DB_PORT_15672_TCP_PORT}/api/
-CMD  /usr/local/miniconda/bin/flower --broker=$BROKER --broker_api=$BROKER_API
+ENV BROKER --broker=amqp://${DB_PORT_5672_TCP_ADDR}:${DB_PORT_5672_TCP_PORT}//
+ENV BROKER_API --broker_api=http://guest:guest@${DB_PORT_15672_TCP_ADDR}:${DB_PORT_15672_TCP_PORT}/api/
+CMD  ["sh", "-c", "/usr/local/miniconda/bin/flower", "echo ${BROKER}", "echo ${BROKER_API}"]
