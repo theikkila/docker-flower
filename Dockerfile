@@ -10,7 +10,7 @@ RUN /tmp/miniconda.sh -b -p /usr/local/miniconda
 ENV PATH /usr/local/miniconda/bin:$PATH
 RUN conda update -q conda
 RUN conda install -q pip tornado
-RUN pip flower 
+RUN pip install flower 
 
 EXPOSE      5555
 ENTRYPOINT  ["/usr/local/miniconda/bin/flower --help"]
