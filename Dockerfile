@@ -9,7 +9,7 @@ RUN chmod +x /tmp/miniconda.sh
 RUN /tmp/miniconda.sh -b -p /usr/local/miniconda
 ENV PATH /usr/local/miniconda/bin:$PATH
 RUN conda update -q conda
-RUN conda install -q pip tornado
+RUN conda install -q pip tornado redis-py
 RUN pip install flower 
 
 EXPOSE      5555
