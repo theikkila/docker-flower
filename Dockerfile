@@ -13,4 +13,4 @@ RUN conda install -q pip tornado
 RUN pip install flower 
 
 EXPOSE      5555
-ENTRYPOINT  ["/usr/local/miniconda/bin/flower --help"]
+CMD  ["/usr/local/miniconda/bin/flower"]
